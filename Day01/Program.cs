@@ -1,5 +1,5 @@
-﻿// var filename = "../../../input.txt";
-var filename = "../../../../../AdventOfCodeInputs/2024/Day01/input.txt";
+﻿// const string filename = "../../../test.txt";
+const string filename = "../../../../../AdventOfCodeInputs/2024/Day01/input.txt";
 
 var left = new List<int>();
 var right = new List<int>();
@@ -7,9 +7,8 @@ var right = new List<int>();
 var sr = new StreamReader(filename);
 while (sr.ReadLine() is { } line)
 {
-    line = line.Trim();
-    var tokens = line.Split(null).Where(x => !string.IsNullOrEmpty(x)).ToList();
-    if (tokens.Count < 2) break;
+    var tokens = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+    if (tokens.Length < 2) break;
     // Console.WriteLine($"{tokens[0]} | {tokens[1]}");
     left.Add(int.Parse(tokens[0]));
     right.Add(int.Parse(tokens[1]));
